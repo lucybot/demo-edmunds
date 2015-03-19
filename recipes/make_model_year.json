@@ -1,0 +1,32 @@
+{
+"name": "",
+"title": "",
+"description": "",
+"actions": ["get_makes", "get_models", "get_years", "get_vehicle"],
+"views": ["make_select", "model_select", "year_select", "vehicle_info"],
+"pages": [{
+  "view": "make_model_year_input",
+  "data": {
+    "action": "get_makes",
+  }
+}],
+"control_sets": [{
+  "title": "Authorization",
+  "affects": "get_makes"
+}, {
+  "title": "Getting Vehicle Makes",
+  "affects": "get_makes"
+}, {
+  "title": "Getting Models",
+  "affects": "get_models"
+}, {
+  "title": "Getting Years",
+  "affects": "get_years"
+}, {
+  "title": "Getting Vehicle Details",
+  "affects": "get_vehicle"
+}, {
+  "title": "Displaying Vehicles",
+  "affects": "vehicle_info"
+}]
+}
