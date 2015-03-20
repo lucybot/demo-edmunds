@@ -1,0 +1,10 @@
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle">
+    {{ activeStyle.name || 'Styles' }}
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li ng-repeat="style in result.styles" role="presentation">
+      <a ng-click="request.styleid = style.id">{{ style.name }}</a>
+    </li>
+  </ul>
+</div>

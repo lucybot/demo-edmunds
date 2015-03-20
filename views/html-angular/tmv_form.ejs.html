@@ -1,0 +1,16 @@
+<div class="input-group">
+  <input class="form-control" type="text" ng-model="request.mileage" placeholder="Mileage">
+</div>
+<div class="input-group">
+  <input class="form-control" type="text" ng-model="request.condition" placeholder="Condition">
+</div>
+<div class="input-group">
+  <input class="form-control" type="text" ng-model="request.zip" placeholder="Zip Code">
+</div>
+<a class="btn btn-info" ng-click="loadData()">
+  Calculate TMV
+</a>
+
+<div id="tmv">
+  Used TMV Retail: ${{ result.tmv.nationalBasePrice.usedTmvRetail }}
+</div>

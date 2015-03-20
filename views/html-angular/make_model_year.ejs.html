@@ -1,0 +1,43 @@
+<script>
+app.controller("dropdowns", function($scope) {
+  $scope.setMake = function(make) {
+    $scope.activeMake = make;
+    $scope.request.model = null;
+    $scope.request.year = null;
+  }
+  $scope.setModel = function(model) {
+    $scope.activeModel = model;
+    $scope.request.year = null;
+  }
+  $scope.setYear = function(year) {
+    $scope.activeYear = year;
+    console.log($scope.activeYear);
+    angular.element('#tmv').scope().loadData();
+  }
+})
+</script>
+<div ng-controller="dropdowns">
+  <select id="make" ng-model="request.make">
+    <option selected disabled>Make</option>
+    <option ng-repeat="make in result.makes" ng-value="make.niceName" ng-click="setMake(make)">{{ make.name }}</option>
+  </select>
+  <select id="model" ng-model="request.model">
+    <option selected disabled>Model</option>
+    <option ng-repeat="model in activeMake.models" ng-value="make.niceName" ng-click="setModel(model)">{{ model.name }}</option>
+  </select>
+  <select id="year" ng-model="request.year">
+    <option selected disabled>Make</option>
+    <option ng-repeat="year in activeModel.years" ng-value="year.year" ng-click="setYear(year)">{{ year.year }}</option>
+  </select>
+  <div ng-if="request.year">
+<%- Lucy.include('style_dropdown', {tabs: 4, data: {
+      action: 'get_styles',
+      answers: {
+        make: {variable: 'activeMake.niceName'},
+        model: {variable: 'activeModel.niceName'},
+        year: {variable: 'activeYear.year'}
+      }
+    }}) %>
+<%- Lucy.include('tmv_form', {tabs: 4, data: {action: 'get_tmv'}}) %>
+  </div>
+</div>
