@@ -10,7 +10,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
      jsonlint: {
        sample: {
-         src: [ 'recipes/wikipedia_cloud.json' ]
+         src: [ 'recipes/make_model_year.json' ]
        }
      },
   });

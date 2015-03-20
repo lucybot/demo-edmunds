@@ -1,18 +1,24 @@
 {
-"name": "",
-"title": "",
-"description": "",
-"actions": ["get_makes", "get_models", "get_years", "get_vehicle"],
-"views": ["make_select", "model_select", "year_select", "vehicle_info"],
+"name": "make_model_year",
+"title": "Make/Model/Year dropdown",
+"description": "Build a Make/Model/Year dropdown using the Edmunds API",
+"actions": ["get_makes", "get_styles"],
+"views": ["make_model_year", "style_dropdown", "tmv_form"],
 "pages": [{
-  "view": "make_model_year_input",
+  "view": "make_model_year",
   "data": {
-    "action": "get_makes",
+    "action": "get_makes"
   }
 }],
 "control_sets": [{
   "title": "Authorization",
-  "affects": "get_makes"
+  "tip": "You can find your keys at http://edmunds.mashery.com/apps/mykeys",
+  "affects": "get_makes",
+  "inputs": [{
+    "name": "api_key",
+    "label": "API key",
+    "type": "text"
+  }]
 }, {
   "title": "Getting Vehicle Makes",
   "affects": "get_makes"
