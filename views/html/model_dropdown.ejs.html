@@ -1,0 +1,15 @@
+<%- Lucy.code.if('result.models') %>
+<%- Lucy.code.form({
+  id: 'ModelForm',
+  action: 'get_years',
+  target: 'Year',
+  inputs: [{
+    type: 'dropdown',
+    label: 'Model',
+    name: 'model',
+    choices: 'result.models',
+    choice_label: 'name',
+    choice_value: 'niceName',
+  }]
+}) %>
+<%- Lucy.code.fi() %>

@@ -1,0 +1,65 @@
+{
+"name": "tmv_lookup",
+"title": "Edmund's - Calculating a vehicle's True Market Value",
+"description": "Build a Make/Model/Year vehicle dropdown to calculate TMV using the Edmunds API",
+"actions": [
+  "get_makes",
+  "get_models",
+  "get_years",
+  "get_styles",
+  "get_tmv"
+],
+"views": [
+  "tmv_lookup",
+  "make_dropdown",
+  "model_dropdown",
+  "year_dropdown",
+  "tmv_inputs",
+  "tmv_info"
+],
+"pages": [{
+  "view": "tmv_lookup"
+}],
+"control_sets": [{
+  "title": "Authorization",
+  "tip": "You can find your keys at http://edmunds.mashery.com/apps/mykeys",
+  "affects": "get_makes",
+  "inputs": [{
+    "name": "api_key",
+    "label": "API key",
+    "type": "text"
+  }]
+}, {
+  "title": "Getting Vehicle Makes",
+  "tip": "Use the makes/ endpoint to retrieve a list of all vehicle makes.",
+  "affects": "get_makes"
+}, {
+  "title": "Displaying a Make dropdown",
+  "tip": "Use the result of the makes/ call to populate a dropdown. The 'name' field contains a human-readable label; the 'niceName' field is what you'll pass to the API to retrieve a list of models for that make.",
+  "affects": "make_dropdown"
+}, {
+  "title": "Getting Models",
+  "tip": "Use the /{make} endpoint to get a list of models for a given make. You can use the result to create another dropdown with the 'name' and 'niceName' fields.",
+  "affects": "get_models"
+}, {
+  "title": "Getting Years",
+  "tip": "Use the /{make}/{model} endpoint to get a list of all years for a given model. This will return an array of years.",
+  "affects": "get_years"
+}, {
+  "title": "Getting Styles",
+  "tip": "Use the /{make}/{model}/{year} endpoint to get a list of styles for a given make, model, and year. This will return an array of style ids.",
+  "affects": "get_styles"
+}, {
+  "title": "Information for Calculating TMV",
+  "tip": "Once we have a style id, we just need the mileage, condition, and zip code to calculate the vehicle's TMV.",
+  "affects":  "tmv_inputs"
+}, {
+  "title": "Calculating True Market Value",
+  "tip": "Use the /tmv/tmvservice/calculateusedtmv endpoint to get the TMV for this vehicle.",
+  "affects": "get_tmv"
+}, {
+  "title": "Displaying the TMV",
+  "tip": "The calculateusedtmv endpoint returns a lot of data about the way TMV is calculated, but the end result is in tmv.nationalBasePrice.usedTmvRetail",
+  "affects": "tmv_info"
+}]
+}

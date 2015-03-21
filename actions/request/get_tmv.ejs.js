@@ -1,7 +1,7 @@
 <%-
 Lucy.request({
   domain: 'api.edmunds.com',
-  path: 'api/vehicle/v2/tmvservice/calculateusedtmv',
+  path: 'v1/api/tmv/tmvservice/calculateusedtmv',
   query: {
     fmt: 'json',
     api_key: {answer: 'api_key'},

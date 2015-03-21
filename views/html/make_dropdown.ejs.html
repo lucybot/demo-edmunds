@@ -1,7 +1,11 @@
 <%- Lucy.code.form({
+  id: 'MakeForm',
+  action: 'get_models',
+  target: 'Model',
   inputs: [{
     type: 'dropdown',
     label: 'Make',
+    name: 'make',
     choices: 'result.makes',
     choice_label: 'name',
     choice_value: 'niceName',

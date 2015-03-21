@@ -1,0 +1,36 @@
+<%- Lucy.code.if('result.styles') %>
+<%- Lucy.code.form({
+  id: 'TMVForm',
+  action: 'get_tmv',
+  target: 'TMVInfo',
+  inputs: [{
+    type: 'dropdown',
+    label: 'Style',
+    name: 'styleid',
+    choices: 'result.styles',
+    choice_label: 'name',
+    choice_value: 'id',
+  }, {
+    type: 'dropdown',
+    label: 'Condition',
+    name: 'condition',
+    choices: [
+      {label: 'Outstanding', value: 'Outstanding'},
+      {label: 'Clean', value: 'Clean'},
+      {label: 'Average', value: 'Average'},
+      {label: 'Rough', value: 'Rough'},
+      {label: 'Damaged', value: 'Damaged'},
+    ],
+    default: 'Outstanding'
+  }, {
+    type: 'number',
+    label: 'Mileage',
+    name: 'mileage',
+    default: 10000
+  }, {
+    type: 'text',
+    label: 'Zip Code',
+    name: 'zip'
+  }]
+}) %>
+<%- Lucy.code.fi() %>

@@ -1,0 +1,15 @@
+<%- Lucy.code.if('result.years') %>
+<%- Lucy.code.form({
+  id: 'YearForm',
+  action: 'get_styles',
+  target: 'TMVInputs',
+  inputs: [{
+    type: 'dropdown',
+    label: 'Year',
+    name: 'year',
+    choices: 'result.years',
+    choice_label: 'year',
+    choice_value: 'year',
+  }]
+}) %>
+<%- Lucy.code.fi() %>

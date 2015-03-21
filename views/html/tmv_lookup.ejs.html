@@ -1,0 +1,28 @@
+<h1>Used TMV Lookup</h1>
+<hr>
+<%- Lucy.include('make_dropdown', {id: 'Make', data: {action: 'get_makes'}}) %>
+<%- Lucy.include('model_dropdown', {id: 'Model', data: {
+      action: 'get_models',
+      answers: {
+        make: {form: 'MakeForm'}
+      }
+}}) %>
+<%- Lucy.include('year_dropdown', {id: 'Year', data: {
+      action: 'get_years',
+      answers: {
+        make: {form: 'MakeForm'},
+        model: {form: 'ModelForm'}
+      }
+}}) %>
+<%- Lucy.include('tmv_inputs', {id: 'TMVInputs', data: {
+      action: 'get_styles',
+      answers: {
+        make: {form: 'MakeForm'},
+        model: {form: 'ModelForm'},
+        year: {form: 'YearForm'}
+      }
+}}) %>
+<%- Lucy.include('tmv_info', {id: 'TMVInfo', data: {
+      action: 'get_tmv',
+      form: 'TMVForm'
+}}) %>
